@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; cursor: none; }
+body { background: #020a04; color: #f0fff4; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #16a34a; }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes glitch1 {
+  0%,94%,100% { transform: none; opacity: 0; }
+  95% { transform: translateX(-4px); opacity: 0.8; }
+  97% { transform: translateX(4px); opacity: 0.8; }
+  99% { transform: none; opacity: 0; }
+}
+@keyframes glitch2 {
+  0%,94%,100% { transform: none; opacity: 0; }
+  96% { transform: translateX(4px); opacity: 0.7; }
+  98% { transform: translateX(-4px); opacity: 0.7; }
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@keyframes scrollDown {
+  to { top: 200%; }
+}
+@keyframes ringPulse {
+  0%,100% { opacity: 0.3; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: 0.6; transform: translate(-50%,-50%) scale(1.03); }
+}
+
+.glitch-text {
+  position: relative;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: #22c55e;
+}
+.glitch-text::before {
+  animation: glitch1 8s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  color: #4ade80;
+}
+.glitch-text::after {
+  animation: glitch2 8s infinite;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  color: #16a34a;
+}
+
+.btn-magnetic {
+  transition: transform 0.3s cubic-bezier(.23,1,.32,1);
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
