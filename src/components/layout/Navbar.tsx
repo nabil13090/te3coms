@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const links = [
+  { href: '/marketplace', label: 'Marketplace' },
   { href: '#services', label: 'Services' },
   { href: '#realisations', label: 'Réalisations' },
   { href: '#processus', label: 'Processus' },
@@ -34,7 +35,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <span
             style={{
               fontFamily: 'var(--font-orbitron)',

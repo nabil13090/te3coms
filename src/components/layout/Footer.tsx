@@ -1,7 +1,13 @@
 'use client'
 
 export default function Footer() {
-  const links = ['Services', 'Réalisations', 'Processus', 'Contact']
+  const links = [
+    { label: 'Marketplace', href: '/marketplace' },
+    { label: 'Services', href: '#services' },
+    { label: 'Réalisations', href: '#realisations' },
+    { label: 'Processus', href: '#processus' },
+    { label: 'Contact', href: '#contact' },
+  ]
 
   return (
     <footer
@@ -35,8 +41,8 @@ export default function Footer() {
         <nav className="flex items-center gap-6">
           {links.map(link => (
             <a
-              key={link}
-              href={`#${link.toLowerCase().replace('é', 'e').replace('è', 'e')}`}
+              key={link.label}
+              href={link.href}
               style={{
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: '0.6rem',
@@ -49,7 +55,7 @@ export default function Footer() {
               onMouseEnter={e => (e.currentTarget.style.color = '#22c55e')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(240,255,244,0.35)')}
             >
-              {link}
+              {link.label}
             </a>
           ))}
         </nav>
