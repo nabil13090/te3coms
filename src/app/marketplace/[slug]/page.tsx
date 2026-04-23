@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -56,6 +57,17 @@ export default function MarketplaceDetailPage({ params }: PageProps) {
               {app.name}
             </h1>
             <p className="text-white/80 max-w-3xl leading-8">{app.fullDesc}</p>
+            {app.screenshot && (
+              <div className="mt-6 rounded-2xl overflow-hidden border border-white/10 relative h-[260px] md:h-[360px]">
+                <Image
+                  src={app.screenshot}
+                  alt={`Capture ${app.name}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                  className="object-cover"
+                />
+              </div>
+            )}
             <div className="flex flex-wrap gap-2 mt-6">
               {app.stack.map((tag) => (
                 <span key={tag} className="px-3 py-1 rounded-full border border-white/15 text-sm text-white/80">

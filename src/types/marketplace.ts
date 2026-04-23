@@ -11,4 +11,5 @@ export interface MarketplaceProject {
   stack: string[]
   demoUrl: string
   accentColor: string
+  screenshot?: string
 }

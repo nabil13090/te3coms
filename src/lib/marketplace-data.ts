@@ -13,6 +13,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Next.js', 'TypeScript', 'SEO local', 'UI/UX', 'Formulaires'],
     demoUrl: 'https://khaki-crane-381915.hostingersite.com',
     accentColor: '#7C6EFA',
+    screenshot: '/screenshots/medical-cabinet.png',
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Next.js', 'Landing', 'Conversion', 'Branding'],
     demoUrl: 'https://cupping-room.fr',
     accentColor: '#C084FC',
+    screenshot: '/screenshots/cupping-room.png',
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Catalogue', 'Filtres', 'B2B', 'SEO'],
     demoUrl: 'https://azure-wren-478191.hostingersite.com/',
     accentColor: '#F97316',
+    screenshot: '/screenshots/attal-pl.png',
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Automobile', 'Stock', 'Services', 'Landing'],
     demoUrl: 'https://bisque-swan-351965.hostingersite.com/',
     accentColor: '#EF4444',
+    screenshot: '/screenshots/gardanne-gap.png',
   },
   {
     id: 5,
@@ -65,6 +69,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Lead Gen', 'BTP', 'Devis', 'CMS-ready'],
     demoUrl: 'https://skyblue-squirrel-200174.hostingersite.com/',
     accentColor: '#F59E0B',
+    screenshot: '/screenshots/mda-batiment.png',
   },
   {
     id: 6,
@@ -78,6 +83,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Energetique', 'SEO local', 'Avis clients'],
     demoUrl: 'https://electrotechenr.fr',
     accentColor: '#22C55E',
+    screenshot: '/screenshots/electrotechenr.png',
   },
   {
     id: 7,
@@ -91,6 +97,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Corporate', 'Confiance', 'SEO', 'Conversion'],
     demoUrl: 'https://midnightblue-finch-161375.hostingersite.com/',
     accentColor: '#0EA5E9',
+    screenshot: '/screenshots/electrotech13.png',
   },
   {
     id: 8,
@@ -104,6 +111,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['SaaS', 'Inscription', 'Formulaires', 'Backoffice-ready'],
     demoUrl: 'https://greenyellow-bat-307784.hostingersite.com/public/inscription/index.php',
     accentColor: '#14B8A6',
+    screenshot: '/screenshots/conduite-spring.png',
   },
   {
     id: 9,
@@ -117,6 +125,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     stack: ['Luxe', 'Branding', 'Storytelling', 'Conciergerie'],
     demoUrl: 'https://magenta-cat-235989.hostingersite.com/',
     accentColor: '#A855F7',
+    screenshot: '/screenshots/votre-majordome.png',
   },
 ]
 

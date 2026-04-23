@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { MARKETPLACE_CATEGORIES, MARKETPLACE_PROJECTS } from '@/lib/marketplace-data'
@@ -71,15 +72,29 @@ export default function MarketplaceClient() {
                 background: '#06180c',
               }}
             >
-              <div
-                className="h-40 p-4 flex items-end"
-                style={{
-                  background: `linear-gradient(135deg, ${app.accentColor}33 0%, rgba(2,18,7,0.9) 70%)`,
-                  borderBottom: '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
+              <div className="h-40 p-4 flex items-end relative overflow-hidden" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                {app.screenshot ? (
+                  <>
+                    <Image
+                      src={app.screenshot}
+                      alt={`Capture ${app.name}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: `linear-gradient(180deg, transparent 0%, rgba(2,18,7,0.88) 90%)` }}
+                    />
+                  </>
+                ) : (
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: `linear-gradient(135deg, ${app.accentColor}33 0%, rgba(2,18,7,0.9) 70%)` }}
+                  />
+                )}
                 <span
-                  className="px-2.5 py-1 rounded-full text-[11px]"
+                  className="px-2.5 py-1 rounded-full text-[11px] relative z-10"
                   style={{
                     background: app.status === 'live' ? 'rgba(34,197,94,0.18)' : 'rgba(168,85,247,0.18)',
                     color: app.status === 'live' ? '#4ade80' : '#d8b4fe',
