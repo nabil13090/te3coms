@@ -9,7 +9,7 @@ export default function MarqueeBar() {
       style={{
         borderTop: '1px solid rgba(34,197,94,0.15)',
         borderBottom: '1px solid rgba(34,197,94,0.15)',
-        background: 'rgba(0,0,0,0.4)',
+        background: '#ffffff',
       }}
     >
       <div
@@ -26,7 +26,7 @@ export default function MarqueeBar() {
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: '0.7rem',
                 letterSpacing: '0.2em',
-                color: 'rgba(240,255,244,0.45)',
+                color: '#334155',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',
               }}

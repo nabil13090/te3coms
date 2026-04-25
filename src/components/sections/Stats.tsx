@@ -33,15 +33,27 @@ export default function Stats() {
       ref={ref}
       className="relative z-10 px-6 py-20"
       style={{
-        borderTop: '1px solid rgba(34,197,94,0.12)',
-        borderBottom: '1px solid rgba(34,197,94,0.12)',
+        borderTop: '1px solid rgba(34,197,94,0.22)',
+        borderBottom: '1px solid rgba(34,197,94,0.22)',
+        backgroundImage: "url('/screenshots/fond.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(22,163,74,0.18), rgba(255,255,255,0.86))',
+          zIndex: 0,
+        }}
+      />
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
         {STATS.map((stat, i) => (
           <div
             key={i}
-            className="flex flex-col items-center justify-center py-8 px-4 text-center"
+            className="relative z-10 flex flex-col items-center justify-center py-8 px-4 text-center"
             style={{
               borderRight: i < STATS.length - 1 ? '1px solid rgba(34,197,94,0.12)' : 'none',
             }}
@@ -51,7 +63,8 @@ export default function Stats() {
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
                 fontWeight: 900,
-                color: '#22c55e',
+                color: '#ffffff',
+                textShadow: '0 2px 10px rgba(0,0,0,0.35)',
                 lineHeight: 1,
                 marginBottom: '0.5rem',
               }}
@@ -62,7 +75,7 @@ export default function Stats() {
               style={{
                 width: '20px',
                 height: '1px',
-                background: '#22c55e',
+                background: '#ffffff',
                 margin: '0.6rem auto',
               }}
             />
@@ -72,7 +85,9 @@ export default function Stats() {
                 fontSize: '0.6rem',
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                color: 'rgba(240,255,244,0.45)',
+                color: '#ffffff',
+                fontWeight: 700,
+                textShadow: '0 2px 8px rgba(0,0,0,0.35)',
               }}
             >
               {stat.label}

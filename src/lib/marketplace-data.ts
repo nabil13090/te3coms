@@ -114,6 +114,20 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     screenshot: '/screenshots/conduite-spring.png',
   },
   {
+    id: 10,
+    slug: 'keryaloc-gestion-locative',
+    name: 'Keryaloc',
+    category: 'Gestion locative',
+    status: 'live',
+    shortDesc: 'SaaS de location de vehicules premium en Algerie avec reservation en ligne et disponibilites synchronisees.',
+    fullDesc:
+      'Keryaloc est une solution SaaS de gestion locative automobile en Algerie. La plateforme couvre le catalogue vehicules, la reservation en ligne, la gestion des disponibilites en temps reel et le suivi client pour une exploitation fluide de l activite.',
+    stack: ['SaaS', 'Gestion locative', 'Reservation', 'Catalogue', 'Temps reel'],
+    demoUrl: 'https://darkcyan-kudu-431247.hostingersite.com/public/index.php',
+    accentColor: '#3B82F6',
+    screenshot: '/screenshots/keryaloc.png',
+  },
+  {
     id: 9,
     slug: 'votre-majordome',
     name: 'Votre Majordome',
@@ -135,6 +149,7 @@ export const MARKETPLACE_CATEGORIES = [
   'Garage et vente vehicule',
   'Batiment',
   'SaaS metier',
+  'Gestion locative',
   'Hotel et conciergerie',
 ] as const
 

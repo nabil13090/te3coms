@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Orbitron, Exo_2 } from 'next/font/google'
+import CookieBanner from '@/components/ui/CookieBanner'
 import './globals.css'
 
 const orbitron = Orbitron({
@@ -37,8 +38,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${orbitron.variable} ${exo2.variable}`}>
-      <body className="cursor-none font-exo antialiased">
+      <body className="font-exo antialiased">
         {children}
+        <CookieBanner />
       </body>
     </html>
   )

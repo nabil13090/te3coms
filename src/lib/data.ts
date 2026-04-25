@@ -16,9 +16,9 @@ export const SERVICES = [
 ]
 
 export const STATS = [
-  { value: 5, suffix: '', label: 'Projets Livrés' },
+  { value: 20, suffix: '', label: 'Projets Livrés' },
   { value: 100, suffix: '%', label: 'Clients Satisfaits' },
-  { value: 3, suffix: '', label: 'Apps SaaS Actives' },
+  { value: 15, suffix: '', label: 'Apps SaaS Actives' },
   { value: 24, suffix: 'h', label: 'Support & Réactivité' },
 ]
 

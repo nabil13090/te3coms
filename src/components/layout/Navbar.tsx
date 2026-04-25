@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const links = [
@@ -29,24 +30,14 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        background: scrolled ? 'rgba(0,0,0,0.92)' : 'transparent',
-        borderBottom: scrolled ? '1px solid rgba(34,197,94,0.12)' : '1px solid transparent',
+        background: scrolled ? 'rgba(2,6,23,0.96)' : 'rgba(2,6,23,0.92)',
+        borderBottom: '1px solid rgba(34,197,94,0.25)',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <span
-            style={{
-              fontFamily: 'var(--font-orbitron)',
-              fontSize: '1.3rem',
-              fontWeight: 900,
-              letterSpacing: '0.05em',
-              color: '#fff',
-            }}
-          >
-            TE<span style={{ color: '#22c55e' }}>3</span>COMS
-          </span>
+          <Image src="/screenshots/logo.png" alt="TE3COMS" width={160} height={42} priority />
         </a>
 
         {/* Links desktop */}
@@ -61,17 +52,18 @@ export default function Navbar() {
                 fontSize: '0.72rem',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: 'rgba(240,255,244,0.65)',
+                color: '#ffffff',
+                fontWeight: 700,
                 textDecoration: 'none',
                 transition: 'color 0.2s',
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#22c55e')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(240,255,244,0.65)')}
+              onMouseEnter={e => (e.currentTarget.style.color = '#166534')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
             >
               {link.label}
               <span
                 className="absolute bottom-[-4px] left-0 h-[1px] bg-green-neon transition-all duration-300 w-0 group-hover:w-full"
-                style={{ background: '#22c55e' }}
+                style={{ background: '#166534' }}
               />
             </a>
           ))}
@@ -85,37 +77,54 @@ export default function Navbar() {
             fontFamily: 'var(--font-orbitron)',
             fontSize: '0.65rem',
             letterSpacing: '0.15em',
-            border: '1px solid #22c55e',
-            color: '#22c55e',
-            background: 'transparent',
-            cursor: 'none',
+            border: '1px solid #16a34a',
+            color: '#166534',
+            background: '#f8fafc',
             transition: 'color 0.3s',
             textDecoration: 'none',
           }}
           onMouseEnter={e => {
             const el = e.currentTarget
-            el.style.color = '#000'
-            el.style.background = '#22c55e'
+            el.style.color = '#ffffff'
+            el.style.background = '#16a34a'
           }}
           onMouseLeave={e => {
             const el = e.currentTarget
-            el.style.color = '#22c55e'
-            el.style.background = 'transparent'
+            el.style.color = '#166534'
+            el.style.background = '#f8fafc'
           }}
         >
           Démarrer un projet
         </a>
 
         {/* Burger mobile */}
-        <button
-          className="md:hidden flex flex-col gap-1.5"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ cursor: 'none' }}
-        >
-          <span className="w-6 h-px bg-green-neon" style={{ background: '#22c55e' }} />
-          <span className="w-4 h-px bg-green-neon" style={{ background: '#22c55e' }} />
-          <span className="w-6 h-px bg-green-neon" style={{ background: '#22c55e' }} />
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <a
+            href="/marketplace"
+            style={{
+              fontFamily: 'var(--font-orbitron)',
+              fontSize: '0.58rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              border: '1px solid rgba(34,197,94,0.7)',
+              color: '#166534',
+              padding: '7px 10px',
+              textDecoration: 'none',
+              borderRadius: '999px',
+            }}
+          >
+            Marketplace
+          </a>
+          <button
+            className="flex flex-col gap-1.5"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{ cursor: 'pointer' }}
+          >
+            <span className="w-6 h-px bg-green-neon" style={{ background: '#166534' }} />
+            <span className="w-4 h-px bg-green-neon" style={{ background: '#166534' }} />
+            <span className="w-6 h-px bg-green-neon" style={{ background: '#166534' }} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -124,7 +133,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden px-6 pb-6 flex flex-col gap-4"
-          style={{ background: 'rgba(0,0,0,0.97)' }}
+          style={{ background: 'rgba(248,250,252,0.98)', borderTop: '1px solid rgba(15,23,42,0.08)' }}
         >
           {links.map(link => (
             <a
@@ -135,7 +144,8 @@ export default function Navbar() {
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: '0.8rem',
                 letterSpacing: '0.15em',
-                color: 'rgba(240,255,244,0.8)',
+                color: '#0f172a',
+                fontWeight: 700,
                 textDecoration: 'none',
                 textTransform: 'uppercase',
               }}
@@ -150,8 +160,8 @@ export default function Navbar() {
               fontFamily: 'var(--font-orbitron)',
               fontSize: '0.7rem',
               letterSpacing: '0.15em',
-              border: '1px solid #22c55e',
-              color: '#22c55e',
+              border: '1px solid #16a34a',
+              color: '#166534',
               padding: '10px 20px',
               textAlign: 'center',
               textDecoration: 'none',

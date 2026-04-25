@@ -7,13 +7,11 @@ import Portfolio from '@/components/sections/Portfolio'
 import Process from '@/components/sections/Process'
 import Cta from '@/components/sections/Cta'
 import MarqueeBar from '@/components/ui/MarqueeBar'
-import CustomCursor from '@/components/ui/CustomCursor'
 import Loader from '@/components/ui/Loader'
 
 export default function Home() {
   return (
     <>
-      <CustomCursor />
       <Loader />
       <Navbar />
       <main>

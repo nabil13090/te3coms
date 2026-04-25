@@ -25,7 +25,7 @@ export default function MarketplaceClient() {
       <div className="max-w-7xl mx-auto">
         <div
           className="mb-8 p-4 rounded-2xl"
-          style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(6,24,12,0.75)' }}
+          style={{ border: '1px solid rgba(16,24,40,0.12)', background: '#ffffff' }}
         >
           <div className="flex flex-wrap gap-2 mb-4">
             {MARKETPLACE_CATEGORIES.map((category) => (
@@ -36,9 +36,9 @@ export default function MarketplaceClient() {
                 style={{
                   fontFamily: 'var(--font-orbitron)',
                   letterSpacing: '0.06em',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: activeCategory === category ? '#021207' : 'rgba(240,255,244,0.7)',
-                  background: activeCategory === category ? '#22c55e' : 'rgba(255,255,255,0.02)',
+                  border: '1px solid rgba(16,24,40,0.15)',
+                  color: activeCategory === category ? '#ffffff' : '#344054',
+                  background: activeCategory === category ? '#16a34a' : '#f8fafc',
                 }}
               >
                 {category}
@@ -51,9 +51,9 @@ export default function MarketplaceClient() {
             placeholder="Rechercher un projet, une stack ou une categorie..."
             className="w-full rounded-xl px-4 py-3 outline-none"
             style={{
-              border: '1px solid rgba(34,197,94,0.25)',
-              background: '#041008',
-              color: '#f0fff4',
+              border: '1px solid rgba(16,24,40,0.15)',
+              background: '#ffffff',
+              color: '#101828',
             }}
           />
         </div>
@@ -68,11 +68,11 @@ export default function MarketplaceClient() {
               transition={{ duration: 0.45, delay: idx * 0.03 }}
               className="overflow-hidden rounded-2xl"
               style={{
-                border: '1px solid rgba(255,255,255,0.08)',
-                background: '#06180c',
+                border: '1px solid rgba(16,24,40,0.12)',
+                background: '#ffffff',
               }}
             >
-              <div className="h-40 p-4 flex items-end relative overflow-hidden" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="h-40 p-4 flex items-end relative overflow-hidden" style={{ borderBottom: '1px solid rgba(15,23,42,0.1)' }}>
                 {app.screenshot ? (
                   <>
                     <Image
@@ -84,7 +84,7 @@ export default function MarketplaceClient() {
                     />
                     <div
                       className="absolute inset-0"
-                      style={{ background: `linear-gradient(180deg, transparent 0%, rgba(2,18,7,0.88) 90%)` }}
+                      style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(15,23,42,0.65) 90%)' }}
                     />
                   </>
                 ) : (
@@ -96,26 +96,29 @@ export default function MarketplaceClient() {
                 <span
                   className="px-2.5 py-1 rounded-full text-[11px] relative z-10"
                   style={{
-                    background: app.status === 'live' ? 'rgba(34,197,94,0.18)' : 'rgba(168,85,247,0.18)',
-                    color: app.status === 'live' ? '#4ade80' : '#d8b4fe',
-                    border: '1px solid rgba(255,255,255,0.15)',
+                    background: app.status === 'live' ? 'rgba(22,163,74,0.12)' : 'rgba(99,102,241,0.12)',
+                    color: app.status === 'live' ? '#166534' : '#4338ca',
+                    border: '1px solid rgba(15,23,42,0.12)',
                   }}
                 >
                   {app.status.toUpperCase()}
                 </span>
               </div>
               <div className="p-5">
-                <p className="text-[11px] uppercase tracking-[0.14em] text-green-300/80 mb-2">{app.category}</p>
+                <p className="text-[11px] uppercase tracking-[0.14em] text-green-900 mb-2">{app.category}</p>
                 <h3
                   className="text-xl mb-2"
-                  style={{ fontFamily: 'var(--font-orbitron)', color: '#f0fff4' }}
+                  style={{ fontFamily: 'var(--font-orbitron)', color: '#0f172a' }}
                 >
                   {app.name}
                 </h3>
-                <p className="text-sm text-white/60 leading-6 mb-4 min-h-[72px]">{app.shortDesc}</p>
+                <p className="text-sm text-slate-600 leading-6 mb-4 min-h-[72px]">{app.shortDesc}</p>
                 <div className="flex flex-wrap gap-2 mb-5">
                   {app.stack.slice(0, 4).map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 rounded-full text-xs bg-white/5 text-white/75 border border-white/10">
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-full text-xs bg-slate-100 text-slate-700 border border-slate-200"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -132,7 +135,7 @@ export default function MarketplaceClient() {
                   </a>
                   <Link
                     href={`/marketplace/${app.slug}`}
-                    className="px-3 py-2 rounded-lg text-xs font-semibold border border-white/15 text-white/80"
+                    className="px-3 py-2 rounded-lg text-xs font-semibold border border-slate-300 text-slate-700"
                   >
                     Voir details
                   </Link>

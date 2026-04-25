@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { PROJECTS } from '@/lib/data'
 
@@ -10,6 +11,14 @@ interface Project {
   category: string
   url: string
   badge: string | null
+}
+
+const PROJECT_SCREENSHOTS: Record<string, string> = {
+  '01': '/screenshots/gardanne-gap.png',
+  '02': '/screenshots/attal-pl.png',
+  '03': '/screenshots/cupping-room.png',
+  '04': '/screenshots/electrotechenr.png',
+  '05': '/screenshots/mda-batiment.png',
 }
 
 function ProjectCard({ project }: { project: Project }) {
@@ -45,8 +54,8 @@ function ProjectCard({ project }: { project: Project }) {
       className="relative overflow-hidden group"
       style={{
         border: '1px solid rgba(34,197,94,0.1)',
-        background: '#041008',
-        cursor: 'none',
+        background: '#ffffff',
+        cursor: 'pointer',
         transformStyle: 'preserve-3d',
         perspective: '1000px',
         transition: 'border-color 0.3s',
@@ -74,7 +83,7 @@ function ProjectCard({ project }: { project: Project }) {
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
-          background: 'rgba(0,0,0,0.4)',
+          background: 'rgba(15,23,42,0.04)',
         }}
       >
         <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ff5f57', display: 'block' }} />
@@ -89,7 +98,7 @@ function ProjectCard({ project }: { project: Project }) {
             borderRadius: '3px',
             fontSize: '0.6rem',
             fontFamily: 'monospace',
-            color: 'rgba(240,255,244,0.3)',
+            color: '#64748b',
             display: 'flex',
             alignItems: 'center',
             paddingLeft: '8px',
@@ -111,21 +120,31 @@ function ProjectCard({ project }: { project: Project }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'rgba(0,0,0,0.3)',
+          background: 'rgba(15,23,42,0.03)',
         }}
       >
-        <span
-          style={{
-            fontFamily: 'var(--font-orbitron)',
-            fontSize: '5rem',
-            fontWeight: 900,
-            color: 'rgba(34,197,94,0.06)',
-            userSelect: 'none',
-            pointerEvents: 'none',
-          }}
-        >
-          {project.id}
-        </span>
+        {PROJECT_SCREENSHOTS[project.id] ? (
+          <Image
+            src={PROJECT_SCREENSHOTS[project.id]}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        ) : (
+          <span
+            style={{
+              fontFamily: 'var(--font-orbitron)',
+              fontSize: '5rem',
+              fontWeight: 900,
+              color: 'rgba(34,197,94,0.06)',
+              userSelect: 'none',
+              pointerEvents: 'none',
+            }}
+          >
+            {project.id}
+          </span>
+        )}
         <div
           style={{
             position: 'absolute',
@@ -133,7 +152,7 @@ function ProjectCard({ project }: { project: Project }) {
             left: 0,
             right: 0,
             height: '60px',
-            background: 'linear-gradient(transparent, #041008)',
+            background: 'linear-gradient(transparent, #ffffff)',
           }}
         />
       </div>
@@ -148,7 +167,7 @@ function ProjectCard({ project }: { project: Project }) {
                 fontSize: '0.55rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color: '#22c55e',
+                color: '#166534',
                 marginBottom: '6px',
               }}
             >
@@ -159,7 +178,7 @@ function ProjectCard({ project }: { project: Project }) {
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: '0.85rem',
                 fontWeight: 700,
-                color: '#f0fff4',
+                color: '#14532d',
               }}
             >
               {project.title}
@@ -172,7 +191,7 @@ function ProjectCard({ project }: { project: Project }) {
                   fontFamily: 'var(--font-orbitron)',
                   fontSize: '0.5rem',
                   letterSpacing: '0.15em',
-                  background: '#22c55e',
+                  background: '#166534',
                   color: '#000',
                   padding: '2px 8px',
                   fontWeight: 700,
@@ -185,7 +204,7 @@ function ProjectCard({ project }: { project: Project }) {
               initial={{ x: 0 }}
               whileHover={{ x: 4 }}
               style={{
-                color: '#22c55e',
+                color: '#166534',
                 fontSize: '1.1rem',
                 lineHeight: 1,
                 display: 'inline-block',
@@ -199,7 +218,7 @@ function ProjectCard({ project }: { project: Project }) {
           style={{
             fontFamily: 'monospace',
             fontSize: '0.6rem',
-            color: 'rgba(240,255,244,0.25)',
+            color: '#64748b',
             letterSpacing: '0.05em',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -224,7 +243,7 @@ function NextProjectCard() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '3rem 2rem',
-        cursor: 'none',
+        cursor: 'pointer',
         minHeight: '300px',
         transition: 'border-color 0.3s, background 0.3s',
       }}
@@ -255,7 +274,7 @@ function NextProjectCard() {
           fontFamily: 'var(--font-orbitron)',
           fontSize: '0.75rem',
           letterSpacing: '0.1em',
-          color: 'rgba(240,255,244,0.35)',
+          color: '#14532d',
           textAlign: 'center',
         }}
       >
@@ -268,18 +287,18 @@ function NextProjectCard() {
 export default function Portfolio() {
   return (
     <section id="realisations" className="relative z-10 px-6 py-24"
-      style={{ background: '#041008' }}>
+      style={{ background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <span style={{ width: '30px', height: '1px', background: '#22c55e', display: 'block' }} />
+            <span style={{ width: '30px', height: '1px', background: '#166534', display: 'block' }} />
             <span
               style={{
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: '0.65rem',
                 letterSpacing: '0.3em',
-                color: '#22c55e',
+                color: '#166534',
                 textTransform: 'uppercase',
               }}
             >
@@ -291,11 +310,11 @@ export default function Portfolio() {
               fontFamily: 'var(--font-orbitron)',
               fontSize: 'clamp(2rem, 4vw, 3rem)',
               fontWeight: 900,
-              color: '#f0fff4',
+              color: '#0f172a',
               lineHeight: 1.1,
             }}
           >
-            Nos <span style={{ color: '#22c55e' }}>Réalisations</span>
+            Nos <span style={{ color: '#166534' }}>Réalisations</span>
           </h2>
         </div>
 

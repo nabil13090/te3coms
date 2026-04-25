@@ -10,13 +10,13 @@ export default function Process() {
         {/* Header */}
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-4">
-            <span style={{ width: '30px', height: '1px', background: '#22c55e', display: 'block' }} />
+            <span style={{ width: '30px', height: '1px', background: '#166534', display: 'block' }} />
             <span
               style={{
                 fontFamily: 'var(--font-orbitron)',
                 fontSize: '0.65rem',
                 letterSpacing: '0.3em',
-                color: '#22c55e',
+                color: '#166534',
                 textTransform: 'uppercase',
               }}
             >
@@ -28,11 +28,11 @@ export default function Process() {
               fontFamily: 'var(--font-orbitron)',
               fontSize: 'clamp(2rem, 4vw, 3rem)',
               fontWeight: 900,
-              color: '#f0fff4',
+              color: '#0f172a',
               lineHeight: 1.1,
             }}
           >
-            Notre <span style={{ color: '#22c55e' }}>Processus</span>
+            Notre <span style={{ color: '#166534' }}>Processus</span>
           </h2>
         </div>
 
@@ -46,7 +46,7 @@ export default function Process() {
               left: '10%',
               right: '10%',
               height: '1px',
-              background: 'linear-gradient(90deg, transparent, #22c55e, transparent)',
+              background: 'linear-gradient(90deg, transparent, #166534, transparent)',
               zIndex: 0,
             }}
           />
@@ -63,7 +63,7 @@ export default function Process() {
               {/* Circle */}
               <motion.div
                 whileHover={{
-                  background: '#22c55e',
+                  background: '#166534',
                   boxShadow: '0 0 30px rgba(34,197,94,0.6)',
                 }}
                 transition={{ duration: 0.2 }}
@@ -77,7 +77,7 @@ export default function Process() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   background: 'transparent',
-                  cursor: 'none',
+                  cursor: 'pointer',
                 }}
               >
                 <motion.span
@@ -86,7 +86,7 @@ export default function Process() {
                     fontFamily: 'var(--font-orbitron)',
                     fontSize: '1.1rem',
                     fontWeight: 900,
-                    color: '#22c55e',
+                    color: '#166534',
                   }}
                 >
                   {step.num}
@@ -99,7 +99,7 @@ export default function Process() {
                   fontSize: '0.8rem',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
-                  color: '#f0fff4',
+                  color: '#14532d',
                   marginBottom: '0.75rem',
                   textTransform: 'uppercase',
                 }}
@@ -110,7 +110,7 @@ export default function Process() {
                 style={{
                   fontFamily: 'var(--font-exo)',
                   fontSize: '0.85rem',
-                  color: 'rgba(240,255,244,0.4)',
+                  color: '#475569',
                   lineHeight: 1.7,
                   fontWeight: 300,
                 }}
