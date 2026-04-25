@@ -37,7 +37,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <Image src="/screenshots/logo.png" alt="TE3COMS" width={160} height={42} priority />
+          <Image src="/screenshots/logo.png" alt="TE3COMS" width={160} height={42} priority className="w-[118px] md:w-[160px] h-auto" />
         </a>
 
         {/* Links desktop */}
@@ -98,31 +98,16 @@ export default function Navbar() {
         </a>
 
         {/* Burger mobile */}
-        <div className="md:hidden flex items-center gap-3">
-          <a
-            href="/marketplace"
-            style={{
-              fontFamily: 'var(--font-orbitron)',
-              fontSize: '0.58rem',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              border: '1px solid rgba(34,197,94,0.7)',
-              color: '#166534',
-              padding: '7px 10px',
-              textDecoration: 'none',
-              borderRadius: '999px',
-            }}
-          >
-            Marketplace
-          </a>
+        <div className="md:hidden flex items-center">
           <button
-            className="flex flex-col gap-1.5"
+            className="flex flex-col gap-1.5 rounded-md p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             style={{ cursor: 'pointer' }}
+            aria-label="Ouvrir le menu"
           >
-            <span className="w-6 h-px bg-green-neon" style={{ background: '#166534' }} />
-            <span className="w-4 h-px bg-green-neon" style={{ background: '#166534' }} />
-            <span className="w-6 h-px bg-green-neon" style={{ background: '#166534' }} />
+            <span className="w-6 h-px bg-green-neon" style={{ background: '#ffffff' }} />
+            <span className="w-4 h-px bg-green-neon" style={{ background: '#ffffff' }} />
+            <span className="w-6 h-px bg-green-neon" style={{ background: '#ffffff' }} />
           </button>
         </div>
       </div>
@@ -132,8 +117,8 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden px-6 pb-6 flex flex-col gap-4"
-          style={{ background: 'rgba(248,250,252,0.98)', borderTop: '1px solid rgba(15,23,42,0.08)' }}
+          className="md:hidden px-6 pb-6 pt-4 flex flex-col gap-2"
+          style={{ background: 'rgba(2,6,23,0.98)', borderTop: '1px solid rgba(34,197,94,0.2)' }}
         >
           {links.map(link => (
             <a
@@ -142,12 +127,14 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               style={{
                 fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.8rem',
+                fontSize: '0.74rem',
                 letterSpacing: '0.15em',
-                color: '#0f172a',
+                color: '#ffffff',
                 fontWeight: 700,
                 textDecoration: 'none',
                 textTransform: 'uppercase',
+                padding: '12px 2px',
+                borderBottom: '1px solid rgba(255,255,255,0.08)',
               }}
             >
               {link.label}
@@ -161,8 +148,10 @@ export default function Navbar() {
               fontSize: '0.7rem',
               letterSpacing: '0.15em',
               border: '1px solid #16a34a',
-              color: '#166534',
-              padding: '10px 20px',
+              color: '#ffffff',
+              background: '#166534',
+              padding: '12px 20px',
+              marginTop: '8px',
               textAlign: 'center',
               textDecoration: 'none',
               textTransform: 'uppercase',

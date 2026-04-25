@@ -37,8 +37,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen px-6 overflow-hidden"
-      style={{ paddingTop: '100px', paddingBottom: '28px' }}
+      className="relative min-h-[88vh] md:min-h-screen px-4 md:px-6 overflow-hidden"
+      style={{ paddingTop: '88px', paddingBottom: '22px' }}
     >
       <video
         autoPlay
@@ -60,13 +60,13 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto h-[calc(100vh-128px)] flex flex-col justify-between">
-        <motion.div {...fadeUp(0.2)} className="pt-8 max-w-2xl">
+      <div className="relative z-10 max-w-7xl mx-auto min-h-[calc(88vh-110px)] md:h-[calc(100vh-128px)] flex flex-col justify-between">
+        <motion.div {...fadeUp(0.2)} className="pt-5 md:pt-8 max-w-2xl">
           <p
             style={{
               fontFamily: 'var(--font-exo)',
-              fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
-              lineHeight: 1.7,
+              fontSize: 'clamp(0.95rem, 3.7vw, 1.25rem)',
+              lineHeight: 1.6,
               fontWeight: 700,
               color: '#ffffff',
               textShadow: '0 2px 12px rgba(0,0,0,0.45)',
@@ -79,15 +79,15 @@ export default function Hero() {
 
         <motion.div
           {...fadeUp(0.35)}
-          className="w-full flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 pb-6"
+          className="w-full flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 md:gap-6 pb-4 md:pb-6"
         >
           <div>
             <h1
               style={{
                 fontFamily: 'var(--font-orbitron)',
-                fontSize: 'clamp(2.2rem, 5.3vw, 5rem)',
+                fontSize: 'clamp(1.55rem, 8.2vw, 5rem)',
                 fontWeight: 900,
-                lineHeight: 1.03,
+                lineHeight: 1.04,
                 letterSpacing: '-0.02em',
                 color: '#ffffff',
                 textShadow: '0 4px 18px rgba(0,0,0,0.55)',
@@ -100,17 +100,17 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="flex flex-col gap-3 w-full lg:w-auto lg:min-w-[255px]">
+          <div className="flex flex-col gap-2.5 md:gap-3 w-full sm:w-auto sm:min-w-[255px]">
             <a
               ref={btn1.ref}
               onMouseMove={btn1.onMouseMove}
               onMouseLeave={btn1.onMouseLeave}
               href="#realisations"
-              className="btn-magnetic px-8 py-4"
+              className="btn-magnetic px-6 md:px-8 py-3.5 md:py-4"
               style={{
                 fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.72rem',
-                letterSpacing: '0.15em',
+                fontSize: '0.66rem',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 fontWeight: 700,
                 textAlign: 'center',
@@ -118,6 +118,7 @@ export default function Hero() {
                 color: '#ffffff',
                 textDecoration: 'none',
                 display: 'inline-block',
+                width: '100%',
                 transition: 'background 0.2s',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.background = '#15803d')}
@@ -131,11 +132,11 @@ export default function Hero() {
               onMouseMove={btn2.onMouseMove}
               onMouseLeave={btn2.onMouseLeave}
               href="#contact"
-              className="btn-magnetic px-8 py-4"
+              className="btn-magnetic px-6 md:px-8 py-3.5 md:py-4"
               style={{
                 fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.72rem',
-                letterSpacing: '0.15em',
+                fontSize: '0.66rem',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 fontWeight: 700,
                 textAlign: 'center',
@@ -143,6 +144,7 @@ export default function Hero() {
                 color: '#ffffff',
                 textDecoration: 'none',
                 display: 'inline-block',
+                width: '100%',
                 transition: 'border-color 0.2s, color 0.2s',
               }}
               onMouseEnter={(e) => {

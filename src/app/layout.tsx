@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={`${orbitron.variable} ${exo2.variable}`}>
+    <html lang="fr" className={`${orbitron.variable} ${exo2.variable}`} suppressHydrationWarning>
       <body className="font-exo antialiased">
         {children}
         <CookieBanner />
