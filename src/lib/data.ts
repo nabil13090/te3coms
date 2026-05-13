@@ -3,7 +3,6 @@ export const PROJECTS = [
   { id: '02', title: 'Projet Client #2', category: 'Application Web', url: 'https://azure-wren-478191.hostingersite.com', badge: 'New' },
   { id: '03', title: 'Projet Client #3', category: 'Plateforme SaaS', url: 'https://khaki-crane-381915.hostingersite.com', badge: null },
   { id: '04', title: 'Electrotechenr', category: 'Site Professionnel', url: 'https://electrotechenr.fr', badge: 'Pro' },
-  { id: '05', title: 'Projet Client #5', category: 'Solution Digitale', url: 'https://midnightblue-finch-161375.hostingersite.com', badge: null },
 ]
 
 export const SERVICES = [

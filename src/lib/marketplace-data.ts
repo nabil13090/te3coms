@@ -59,20 +59,6 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
   },
   {
     id: 5,
-    slug: 'mda-batiment',
-    name: 'MDA Batiment',
-    category: 'Batiment',
-    status: 'live',
-    shortDesc: 'Plateforme renovation premium avec methode chantier et demande devis.',
-    fullDesc:
-      'Site oriente generation de leads pour renovation complete. Positionnement premium, preuves sociales, methode en 4 etapes et formulaires detaillees pour qualifier les projets et accelerer la signature.',
-    stack: ['Lead Gen', 'BTP', 'Devis', 'CMS-ready'],
-    demoUrl: 'https://skyblue-squirrel-200174.hostingersite.com/',
-    accentColor: '#F59E0B',
-    screenshot: '/screenshots/mda-batiment.png',
-  },
-  {
-    id: 6,
     slug: 'electrotech-enr',
     name: 'Electrotech ENR',
     category: 'Batiment',
@@ -86,7 +72,7 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     screenshot: '/screenshots/electrotechenr.png',
   },
   {
-    id: 7,
+    id: 6,
     slug: 'electrotech-13',
     name: 'Electrotech 13',
     category: 'Batiment',
@@ -95,26 +81,12 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     fullDesc:
       'Site corporate complet structure pour rassurer les donneurs d ordre: historique, labels, references clients et services detailles. UX orientee conversion immediate vers appel et devis gratuit.',
     stack: ['Corporate', 'Confiance', 'SEO', 'Conversion'],
-    demoUrl: 'https://midnightblue-finch-161375.hostingersite.com/',
+    demoUrl: 'https://electrotech-sud.fr/',
     accentColor: '#0EA5E9',
     screenshot: '/screenshots/electrotech13.png',
   },
   {
-    id: 8,
-    slug: 'conduite-spring',
-    name: 'Conduite Spring SaaS',
-    category: 'SaaS metier',
-    status: 'live',
-    shortDesc: 'Plateforme metier auto-ecole avec tunnel inscription et parcours eleve.',
-    fullDesc:
-      'SaaS metier pour auto-ecole avec modules de presentation offres, tarification et formulaire d inscription detaille. L architecture est ideale pour evoluer vers un vrai espace eleve connecte.',
-    stack: ['SaaS', 'Inscription', 'Formulaires', 'Backoffice-ready'],
-    demoUrl: 'https://greenyellow-bat-307784.hostingersite.com/public/inscription/index.php',
-    accentColor: '#14B8A6',
-    screenshot: '/screenshots/conduite-spring.png',
-  },
-  {
-    id: 10,
+    id: 7,
     slug: 'keryaloc-gestion-locative',
     name: 'Keryaloc',
     category: 'Gestion locative',
@@ -128,18 +100,18 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
     screenshot: '/screenshots/keryaloc.png',
   },
   {
-    id: 9,
-    slug: 'votre-majordome',
-    name: 'Votre Majordome',
+    id: 8,
+    slug: 'hotelos-360',
+    name: 'HôtelOS 360',
     category: 'Hotel et conciergerie',
     status: 'live',
-    shortDesc: 'Experience digitale luxe pour conciergerie privee et clientele premium.',
+    shortDesc: 'Site hotel haut de gamme avec moteur de reservation et PMS integre pour la gestion des sejours.',
     fullDesc:
-      'Vitrine lifestyle premium axee image de marque, discretion et accompagnement personnalise. Le design editorial renforce la perception haut de gamme et soutient la prise de contact qualifiee.',
-    stack: ['Luxe', 'Branding', 'Storytelling', 'Conciergerie'],
-    demoUrl: 'https://magenta-cat-235989.hostingersite.com/',
-    accentColor: '#A855F7',
-    screenshot: '/screenshots/votre-majordome.png',
+      'Vitrine hoteliere complete autour de Setif : chambres et suites, formules de sejour, experiences locales et journal d invites. Le parcours integre la recherche de disponibilites, la composition du sejour et un espace client, le tout relie a un PMS pour exploiter reservations et sejours de bout en bout.',
+    stack: ['Next.js', 'PMS', 'Reservation', 'Hotellerie', 'UX conversion'],
+    demoUrl: 'https://olive-quetzal-411043.hostingersite.com/public/',
+    accentColor: '#0D9488',
+    screenshot: '/screenshots/hotel.png',
   },
 ]
 
@@ -152,4 +124,3 @@ export const MARKETPLACE_CATEGORIES = [
   'Gestion locative',
   'Hotel et conciergerie',
 ] as const
-
