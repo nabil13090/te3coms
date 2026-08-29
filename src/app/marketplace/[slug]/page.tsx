@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowUpRight } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Check } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { MARKETPLACE_PROJECTS } from '@/lib/marketplace-data'
@@ -24,6 +24,19 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 }
 
+function TechGroup({ label, items }: { label: string; items: string[] }) {
+  return (
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400 mb-2">{label}</p>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item) => (
+          <span key={item} className="tag bg-white">{item}</span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function MarketplaceDetailPage({ params }: PageProps) {
   const app = MARKETPLACE_PROJECTS.find((project) => project.slug === params.slug)
   if (!app) notFound()
@@ -31,6 +44,8 @@ export default function MarketplaceDetailPage({ params }: PageProps) {
   const related = MARKETPLACE_PROJECTS.filter(
     (project) => project.category === app.category && project.slug !== app.slug,
   ).slice(0, 3)
+
+  const imageSrc = app.mockupImage ?? app.screenshot
 
   return (
     <>
@@ -45,28 +60,38 @@ export default function MarketplaceDetailPage({ params }: PageProps) {
             Retour aux réalisations
           </Link>
 
-          <article className="card p-8 md:p-12 mb-10">
-            <p className="eyebrow mb-3">{app.category}</p>
+          <article className="card p-8 md:p-12 mb-8">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <p className="eyebrow">{app.category}</p>
+              <span className="tag bg-accent-light text-accent">{app.deliveryTime}</span>
+            </div>
             <h1 className="heading-lg mb-5">{app.name}</h1>
-            <p className="body-lg mb-8">{app.fullDesc}</p>
+            <p className="body-lg mb-6">{app.fullDesc}</p>
+            <p className="text-sm text-stone-500 leading-relaxed mb-8">{app.context}</p>
 
-            {app.screenshot && (
-              <div className="overflow-hidden border border-stone-200 relative h-[260px] md:h-[400px] mb-8">
+            {imageSrc && (
+              <div className="overflow-hidden border border-stone-200 relative h-[260px] md:h-[420px] mb-8 bg-white">
                 <Image
-                  src={app.screenshot}
+                  src={imageSrc}
                   alt={`Capture ${app.name}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="object-cover object-top"
+                  className="object-contain object-center p-2"
                 />
               </div>
             )}
 
-            <div className="flex flex-wrap gap-2 mb-8">
-              {app.stack.map((tag) => (
-                <span key={tag} className="tag">
-                  {tag}
-                </span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-200 border border-stone-200 mb-8">
+              {app.results.map((r, i) => (
+                <div
+                  key={r.label}
+                  className={`p-5 text-center ${i % 2 === 0 ? 'bg-accent-light' : 'bg-amber-50'}`}
+                >
+                  <p className={`font-display text-2xl font-semibold ${i % 2 === 0 ? 'text-accent' : 'text-brand-amber'}`}>
+                    {r.value}
+                  </p>
+                  <p className="font-mono text-[9px] uppercase tracking-widest text-stone-500 mt-1">{r.label}</p>
+                </div>
               ))}
             </div>
 
@@ -80,6 +105,62 @@ export default function MarketplaceDetailPage({ params }: PageProps) {
               </Link>
             </div>
           </article>
+
+          <div className="grid md:grid-cols-2 border border-stone-200 bg-white mb-8">
+            <div className="p-8 md:border-r border-stone-200 border-b md:border-b-0">
+              <p className="eyebrow mb-3">Le défi client</p>
+              <p className="text-sm text-stone-600 leading-relaxed">{app.challenge}</p>
+            </div>
+            <div className="p-8 bg-accent-light/30">
+              <p className="eyebrow mb-3">Notre approche</p>
+              <p className="text-sm text-stone-600 leading-relaxed">{app.solution}</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 border border-stone-200 bg-white mb-8">
+            <div className="p-8 lg:border-r border-stone-200 border-b lg:border-b-0">
+              <p className="eyebrow mb-4">Pages & modules livrés ({app.pages.length})</p>
+              <ul className="space-y-2">
+                {app.pages.map((page) => (
+                  <li key={page} className="flex items-center gap-2 text-sm text-stone-600">
+                    <Check size={14} className="text-accent shrink-0" />
+                    {page}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-8 bg-stone-50">
+              <p className="eyebrow mb-4">Fonctionnalités développées</p>
+              <ul className="space-y-2">
+                {app.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm text-stone-600">
+                    <span className="text-accent mt-0.5">→</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="card p-8 md:p-10 mb-10">
+            <p className="eyebrow mb-6">Stack technique détaillé</p>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <TechGroup label="Front-end" items={app.techStack.frontend} />
+              <TechGroup label="Back-end" items={app.techStack.backend} />
+              {app.techStack.cms && app.techStack.cms.length > 0 && (
+                <TechGroup label="CMS" items={app.techStack.cms} />
+              )}
+              <TechGroup label="Outils & déploiement" items={app.techStack.tools} />
+            </div>
+            <div className="mt-6 pt-6 border-t border-stone-200">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400 mb-3">Résumé</p>
+              <div className="flex flex-wrap gap-2">
+                {app.stack.map((tag) => (
+                  <span key={tag} className="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {related.length > 0 && (
             <section>
@@ -95,7 +176,8 @@ export default function MarketplaceDetailPage({ params }: PageProps) {
                   >
                     <p className="tag mb-3">{item.category}</p>
                     <h3 className="font-display font-semibold text-stone-900 mb-2">{item.name}</h3>
-                    <p className="text-sm text-stone-500 line-clamp-2">{item.shortDesc}</p>
+                    <p className="text-sm text-stone-500 line-clamp-2 mb-2">{item.shortDesc}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-accent">{item.deliveryTime}</p>
                   </Link>
                 ))}
               </div>

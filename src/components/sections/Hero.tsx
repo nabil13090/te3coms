@@ -1,9 +1,9 @@
 ﻿'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, Star } from 'lucide-react'
-import { HERO_OFFER, TESTIMONIALS, CLIENT_LOGOS } from '@/lib/data'
+import { HERO_OFFER, TESTIMONIALS, CLIENT_LOGOS, CASE_STUDY } from '@/lib/data'
+import DeviceMockupImage from '@/components/ui/DeviceMockupImage'
 
 const STAT_BLOCKS = [
   { val: '20+', label: 'Projets livrés', className: 'bg-accent-light text-accent' },
@@ -81,26 +81,21 @@ export default function Hero() {
               </span>
             </Link>
 
-            <div className="relative aspect-[16/10] lg:aspect-auto lg:flex-1 lg:min-h-[240px] border-b lg:border-b-0 border-stone-200 overflow-hidden bg-stone-100">
-              <Image
-                src="/screenshots/electrotech13.png"
-                alt="Exemple de réalisation TE3COMS — Electrotech 13"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                priority
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-accent/95 px-6 py-4 md:px-8 md:py-5">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-amber-200 mb-1">
-                  Dernière réalisation
-                </p>
-                <p className="font-display text-lg md:text-xl font-semibold text-white">Electrotech 13</p>
+            <div className="relative flex-1 min-h-[320px] lg:min-h-[380px] border-b lg:border-b-0 border-stone-200 bg-white overflow-hidden">
+              <div className="relative z-10 h-full flex items-center justify-center p-4 md:p-8 lg:p-10">
+                <DeviceMockupImage
+                  src={CASE_STUDY.mockupImage}
+                  alt={`Aperçu du site ${CASE_STUDY.client}`}
+                  title={CASE_STUDY.client}
+                  subtitle="Dernière réalisation"
+                  href={CASE_STUDY.url}
+                  priority
+                />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Logos — fond uni, sans grille */}
         <div className="border-b border-stone-200 px-8 md:px-12 xl:px-20 py-6 bg-accent-light">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent mb-4 text-center">
             Ils nous font confiance

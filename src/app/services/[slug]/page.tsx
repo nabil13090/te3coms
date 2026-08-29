@@ -19,11 +19,25 @@ export function generateMetadata({ params }: Props): Metadata {
   return { title: `${service.title} | TE3COMS`, description: service.shortDesc }
 }
 
+function TechGroup({ label, items }: { label: string; items: string[] }) {
+  return (
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-widest text-stone-400 mb-2">{label}</p>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item) => (
+          <span key={item} className="tag bg-white">{item}</span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function ServiceDetailPage({ params }: Props) {
   const service = SERVICES.find((s) => s.slug === params.slug)
   if (!service) notFound()
 
   const others = SERVICES.filter((s) => s.slug !== params.slug)
+  const ts = service.techStack
 
   return (
     <>
@@ -35,10 +49,15 @@ export default function ServiceDetailPage({ params }: Props) {
           title={service.shortDesc}
           description={service.desc}
         >
-          <Link href="/contact" className="btn-primary">
-            Demander un devis
-            <ArrowRight size={15} strokeWidth={1.5} />
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/contact" className="btn-primary">
+              Demander un devis
+              <ArrowRight size={15} strokeWidth={1.5} />
+            </Link>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-stone-500">
+              Délai : {service.deliveryRange}
+            </p>
+          </div>
         </PageHero>
 
         <section className="section-padding bg-white border-b border-stone-200">
@@ -65,9 +84,24 @@ export default function ServiceDetailPage({ params }: Props) {
                   <p className="text-sm text-stone-600 leading-relaxed">{service.forWho}</p>
                 </div>
               </div>
+
+              <div className="border border-stone-200 p-6 md:p-8 bg-accent-light/20">
+                <p className="eyebrow mb-4">Périmètre type</p>
+                <ul className="grid sm:grid-cols-2 gap-3">
+                  {service.scope.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-stone-600">
+                      <Check size={14} className="text-accent shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div className="border border-stone-200 p-8 h-fit bg-stone-50">
+              <p className="eyebrow mb-2">Délai indicatif</p>
+              <p className="font-display text-lg font-semibold text-stone-900 mb-6">{service.deliveryRange}</p>
+
               <p className="eyebrow mb-4">Livrables</p>
               <ul className="space-y-3 mb-8">
                 {service.highlights.map((h) => (
@@ -91,17 +125,35 @@ export default function ServiceDetailPage({ params }: Props) {
 
         <section className="section-padding bg-stone-100 border-b border-stone-200">
           <div className="container-wide">
+            <p className="eyebrow mb-4">Technologies</p>
+            <h2 className="heading-lg mb-8">Stack technique pour ce type de projet</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-stone-200 bg-white p-8">
+              <TechGroup label="Front-end" items={ts.frontend} />
+              <TechGroup label="Back-end" items={ts.backend} />
+              {'cms' in ts && ts.cms && ts.cms.length > 0 && (
+                <TechGroup label="CMS" items={ts.cms} />
+              )}
+              <TechGroup label="Outils" items={ts.tools} />
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding bg-white border-b border-stone-200">
+          <div className="container-wide">
             <p className="eyebrow mb-6">Autres expertises</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 border border-stone-200 bg-white">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 border border-stone-200 bg-white">
               {others.map((s, i) => (
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className={`p-6 hover:bg-stone-50 transition-colors ${i < others.length - 1 ? 'lg:border-r border-stone-200 border-b lg:border-b-0' : ''}`}
+                  className={`p-6 hover:bg-stone-50 transition-colors ${
+                    i < others.length - 1 ? 'lg:border-r border-stone-200 border-b lg:border-b-0' : ''
+                  } ${i < 4 ? 'md:border-b lg:border-b-0 border-stone-200' : ''}`}
                 >
                   <p className="font-mono text-xs text-stone-400 mb-2">{s.num}</p>
                   <h3 className="font-display font-semibold text-stone-900">{s.title}</h3>
                   <p className="text-xs text-stone-500 mt-2 line-clamp-2">{s.shortDesc}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-widest text-accent mt-3">{s.deliveryRange}</p>
                 </Link>
               ))}
             </div>

@@ -15,7 +15,7 @@ export default function MarketplaceClient() {
       const categoryMatch = activeCategory === 'Toutes' || app.category === activeCategory
       const search = query.trim().toLowerCase()
       if (!search) return categoryMatch
-      const text = `${app.name} ${app.shortDesc} ${app.category} ${app.stack.join(' ')}`.toLowerCase()
+      const text = `${app.name} ${app.shortDesc} ${app.category} ${app.stack.join(' ')} ${app.deliveryTime}`.toLowerCase()
       return categoryMatch && text.includes(search)
     })
   }, [activeCategory, query])
@@ -42,7 +42,7 @@ export default function MarketplaceClient() {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Rechercher..."
+            placeholder="Rechercher par nom, techno ou secteur..."
             className="w-full border-b border-stone-200 pb-3 bg-transparent text-stone-900 text-sm outline-none focus:border-stone-900 placeholder:text-stone-400"
           />
         </div>
@@ -59,9 +59,20 @@ export default function MarketplaceClient() {
                 )}
               </div>
               <div className="p-6">
-                <p className="tag mb-3">{app.category}</p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="tag">{app.category}</span>
+                  <span className="tag bg-accent-light text-accent">{app.deliveryTime}</span>
+                </div>
                 <h3 className="font-display text-xl font-semibold tracking-tight text-stone-900 mb-2">{app.name}</h3>
-                <p className="text-sm text-stone-500 leading-relaxed mb-5 line-clamp-2">{app.shortDesc}</p>
+                <p className="text-sm text-stone-500 leading-relaxed mb-4 line-clamp-3">{app.shortDesc}</p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {app.stack.slice(0, 4).map((tag) => (
+                    <span key={tag} className="tag bg-stone-50 text-[10px]">{tag}</span>
+                  ))}
+                </div>
+                <p className="font-mono text-[9px] uppercase tracking-widest text-stone-400 mb-4">
+                  {app.pages.length} pages · {app.features.length} fonctionnalités
+                </p>
                 <div className="flex gap-2">
                   <a
                     href={app.demoUrl}

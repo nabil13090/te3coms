@@ -20,7 +20,7 @@ export default function ExpertiseSection() {
           index="01"
           eyebrow="Expertises"
           title="Tout ce qu'il faut pour faire du digital un vrai levier."
-          description="Nous ne livrons pas « juste un site ». Nous construisons des outils qui travaillent pour vous : visibilité, crédibilité, automatisation et conversion."
+          description="Sites WordPress autonomes, applications React/Next.js haute performance, SaaS Node.js et CRM sur mesure. HTML, CSS, JavaScript, PHP — le bon outil pour chaque besoin, avec un délai adapté à votre projet."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 border border-stone-200">
@@ -40,7 +40,10 @@ export default function ExpertiseSection() {
                 <h3 className="font-display text-xl font-semibold text-stone-900 mb-3 group-hover:text-accent transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm text-stone-600 leading-relaxed mb-4">{service.longDesc}</p>
+                <p className="text-sm text-stone-600 leading-relaxed mb-3">{service.longDesc}</p>
+                <p className="font-mono text-[9px] uppercase tracking-widest text-brand-cobalt mb-4">
+                  {service.deliveryRange}
+                </p>
                 <ul className="space-y-2 mb-6">
                   {service.benefits.map((b) => (
                     <li key={b} className="flex items-start gap-2 text-xs text-stone-500">

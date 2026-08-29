@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import PageHero from '@/components/ui/PageHero'
-import { WORKFLOW_STEPS, PROCESS, LANDING_OFFER } from '@/lib/data'
+import { WORKFLOW_STEPS, PROCESS, LANDING_OFFER, DELIVERY_RANGES } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: 'Notre méthode & workflow | TE3COMS',
@@ -20,7 +20,7 @@ export default function WorkflowPage() {
           index="Méthode"
           eyebrow="Workflow"
           title="Un processus clair, du premier appel au lancement."
-          description="Que ce soit une landing page à 699 € ou une plateforme SaaS complète, nous suivons une méthode éprouvée pour livrer à temps, sans mauvaise surprise."
+          description="Que ce soit une landing page à 699 € ou une plateforme SaaS complète, nous suivons une méthode éprouvée. Les délais varient selon le périmètre — jamais de promesse générique."
         />
 
         {/* Timeline visuelle */}
@@ -74,6 +74,36 @@ export default function WorkflowPage() {
                 Voir l&apos;offre détaillée
                 <ArrowRight size={15} />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Délais par type de projet */}
+        <section className="section-padding bg-white border-b border-stone-200">
+          <div className="container-wide">
+            <p className="eyebrow mb-4">Délais</p>
+            <h2 className="heading-lg mb-4">Combien de temps pour votre projet ?</h2>
+            <p className="body-lg max-w-2xl mb-10">
+              Chaque projet a son propre calendrier. Voici des fourchettes indicatives — le délai exact est
+              défini au brief, en fonction du nombre de pages, des fonctionnalités et de vos délais de validation.
+            </p>
+            <div className="border border-stone-200 bg-white">
+              {DELIVERY_RANGES.map((item, i) => (
+                <div
+                  key={item.type}
+                  className={`grid md:grid-cols-12 p-6 md:p-8 ${i < DELIVERY_RANGES.length - 1 ? 'border-b border-stone-200' : ''}`}
+                >
+                  <div className="md:col-span-4 mb-2 md:mb-0">
+                    <p className="font-display font-semibold text-stone-900">{item.type}</p>
+                  </div>
+                  <div className="md:col-span-3">
+                    <span className="tag bg-accent-light text-accent">{item.range}</span>
+                  </div>
+                  <div className="md:col-span-5 mt-2 md:mt-0">
+                    <p className="text-sm text-stone-500">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

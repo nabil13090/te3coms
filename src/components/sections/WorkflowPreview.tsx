@@ -20,8 +20,8 @@ export default function WorkflowPreview() {
           <SectionHeader
             index="04"
             eyebrow="Notre méthode"
-            title="4 étapes simples. Zéro surprise."
-            description="Un processus clair du brief à la mise en ligne — le même pour une landing à 699 € ou un SaaS complet."
+            title="4 étapes simples. Délais selon votre projet."
+            description="Un processus clair du brief à la mise en ligne — landing 10–15 jours, site vitrine 3–5 semaines, SaaS en sprints. Le planning exact est défini au cadrage."
             dark
           />
           <Link href="/workflow" className="btn-outline-light shrink-0">

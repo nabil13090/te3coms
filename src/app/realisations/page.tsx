@@ -17,8 +17,8 @@ export default function RealisationsPage() {
         <PageHero
           index="02"
           eyebrow="Portfolio"
-          title="Projets clients."
-          description="Sites, marketplaces, plateformes SaaS et outils métier livrés pour nos clients."
+          title="Projets clients détaillés."
+          description="8 réalisations documentées : contexte client, stack technique (HTML, CSS, JS, React, Next.js, Node.js, PHP, WordPress), pages livrées, fonctionnalités et délais réels par projet."
         />
         <MarketplaceClient />
       </main>
