@@ -2,76 +2,35 @@
 
 import { useEffect, useState } from 'react'
 
-type ConsentValue = 'accepted' | 'refused'
-
 const STORAGE_KEY = 'te3coms_cookie_consent'
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const consent = window.localStorage.getItem(STORAGE_KEY)
-    setVisible(!consent)
+    setVisible(!window.localStorage.getItem(STORAGE_KEY))
   }, [])
-
-  const handleChoice = (value: ConsentValue) => {
-    window.localStorage.setItem(STORAGE_KEY, value)
-    setVisible(false)
-  }
 
   if (!visible) return null
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        left: '50%',
-        bottom: '20px',
-        transform: 'translateX(-50%)',
-        width: 'min(920px, calc(100% - 24px))',
-        background: '#020617',
-        border: '1px solid rgba(34,197,94,0.35)',
-        borderRadius: '14px',
-        padding: '14px 16px',
-        zIndex: 12000,
-        boxShadow: '0 10px 30px rgba(2,6,23,0.35)',
-      }}
-    >
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <p
-          style={{
-            color: '#e2e8f0',
-            fontSize: '0.92rem',
-            lineHeight: 1.5,
-          }}
+    <div className="fixed left-5 right-5 bottom-5 md:left-8 md:right-auto md:max-w-md border border-stone-200 bg-white p-5 z-[12000] shadow-none">
+      <p className="text-sm text-stone-500 leading-relaxed mb-4">
+        Ce site utilise des cookies pour améliorer votre expérience.
+      </p>
+      <div className="flex gap-2">
+        <button
+          onClick={() => { window.localStorage.setItem(STORAGE_KEY, 'refused'); setVisible(false) }}
+          className="flex-1 py-2.5 border border-stone-200 font-mono text-[10px] uppercase tracking-widest text-stone-600 hover:bg-stone-50"
         >
-          Ce site utilise des cookies pour améliorer votre expérience et mesurer l’audience.
-        </p>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => handleChoice('refused')}
-            className="px-4 py-2 rounded-md text-sm font-semibold"
-            style={{
-              border: '1px solid rgba(226,232,240,0.45)',
-              color: '#ffffff',
-              background: 'transparent',
-            }}
-          >
-            Refuser
-          </button>
-          <button
-            onClick={() => handleChoice('accepted')}
-            className="px-4 py-2 rounded-md text-sm font-semibold"
-            style={{
-              border: '1px solid #22c55e',
-              color: '#041008',
-              background: '#22c55e',
-            }}
-          >
-            Accepter
-          </button>
-        </div>
+          Refuser
+        </button>
+        <button
+          onClick={() => { window.localStorage.setItem(STORAGE_KEY, 'accepted'); setVisible(false) }}
+          className="flex-1 py-2.5 bg-stone-900 text-white font-mono text-[10px] uppercase tracking-widest hover:bg-accent"
+        >
+          Accepter
+        </button>
       </div>
     </div>
   )

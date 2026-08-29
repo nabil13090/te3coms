@@ -12,7 +12,6 @@ function AnimatedCounter({ target, suffix, isVisible }: { target: number; suffix
     if (!isVisible) return
     const duration = 1600
     const start = performance.now()
-
     const tick = (now: number) => {
       const t = Math.min((now - start) / duration, 1)
       setCount(Math.round(easeOutQuart(t) * target))
@@ -29,69 +28,14 @@ export default function Stats() {
   const isVisible = useScrollReveal(ref as React.RefObject<Element>)
 
   return (
-    <section
-      ref={ref}
-      className="relative z-10 px-6 py-20"
-      style={{
-        borderTop: '1px solid rgba(34,197,94,0.22)',
-        borderBottom: '1px solid rgba(34,197,94,0.22)',
-        backgroundImage: "url('/screenshots/fond.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(180deg, rgba(22,163,74,0.18), rgba(255,255,255,0.86))',
-          zIndex: 0,
-        }}
-      />
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
+    <section ref={ref} className="py-14 border-y border-stone-200 bg-white">
+      <div className="container-wide grid grid-cols-2 md:grid-cols-4 gap-8">
         {STATS.map((stat, i) => (
-          <div
-            key={i}
-            className="relative z-10 flex flex-col items-center justify-center py-8 px-4 text-center"
-            style={{
-              borderRight: i < STATS.length - 1 ? '1px solid rgba(34,197,94,0.12)' : 'none',
-            }}
-          >
-            <div
-              style={{
-                fontFamily: 'var(--font-orbitron)',
-                fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-                fontWeight: 900,
-                color: '#ffffff',
-                textShadow: '0 2px 10px rgba(0,0,0,0.35)',
-                lineHeight: 1,
-                marginBottom: '0.5rem',
-              }}
-            >
+          <div key={i} className="text-center">
+            <div className="font-display text-4xl md:text-5xl font-semibold text-stone-900 mb-2">
               <AnimatedCounter target={stat.value} suffix={stat.suffix} isVisible={isVisible} />
             </div>
-            <div
-              style={{
-                width: '20px',
-                height: '1px',
-                background: '#ffffff',
-                margin: '0.6rem auto',
-              }}
-            />
-            <p
-              style={{
-                fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.6rem',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: '#ffffff',
-                fontWeight: 700,
-                textShadow: '0 2px 8px rgba(0,0,0,0.35)',
-              }}
-            >
-              {stat.label}
-            </p>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-stone-500">{stat.label}</p>
           </div>
         ))}
       </div>

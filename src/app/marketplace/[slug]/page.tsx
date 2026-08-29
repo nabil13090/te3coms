@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { MARKETPLACE_PROJECTS } from '@/lib/marketplace-data'
@@ -18,7 +19,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const app = MARKETPLACE_PROJECTS.find((project) => project.slug === params.slug)
   if (!app) return { title: 'Projet introuvable | TE3COMS' }
   return {
-    title: `${app.name} | TE3COMS Marketplace`,
+    title: `${app.name} | TE3COMS`,
     description: app.shortDesc,
   }
 }
@@ -34,79 +35,67 @@ export default function MarketplaceDetailPage({ params }: PageProps) {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-14 px-6" style={{ background: '#f8fafc' }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-8 text-sm text-slate-500">
-            <Link href="/marketplace" className="text-green-700 hover:text-green-600">
-              Marketplace
-            </Link>{' '}
-            / <span>{app.category}</span> / <span className="text-slate-800">{app.name}</span>
-          </div>
-
-          <section
-            className="rounded-3xl p-8 md:p-10 mb-8"
-            style={{
-              border: '1px solid rgba(16,24,40,0.12)',
-              background: `linear-gradient(135deg, ${app.accentColor}22 0%, rgba(255,255,255,0.95) 70%)`,
-            }}
+      <main className="pt-[88px] pb-14 px-5 md:px-8 bg-stone-100 min-h-screen border-b border-stone-200">
+        <div className="container-wide max-w-5xl">
+          <Link
+            href="/realisations"
+            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-stone-500 hover:text-stone-900 mb-8 transition-colors"
           >
-            <p className="text-xs uppercase tracking-[0.16em] text-green-700 mb-3">{app.category}</p>
-            <h1 className="text-4xl md:text-5xl mb-4 text-slate-900" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              {app.name}
-            </h1>
-            <p className="text-slate-700 max-w-3xl leading-8">{app.fullDesc}</p>
+            <ArrowLeft size={14} strokeWidth={1.5} />
+            Retour aux réalisations
+          </Link>
+
+          <article className="card p-8 md:p-12 mb-10">
+            <p className="eyebrow mb-3">{app.category}</p>
+            <h1 className="heading-lg mb-5">{app.name}</h1>
+            <p className="body-lg mb-8">{app.fullDesc}</p>
+
             {app.screenshot && (
-              <div className="mt-6 rounded-2xl overflow-hidden border border-slate-200 relative h-[260px] md:h-[360px]">
+              <div className="overflow-hidden border border-stone-200 relative h-[260px] md:h-[400px] mb-8">
                 <Image
                   src={app.screenshot}
                   alt={`Capture ${app.name}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             )}
-            <div className="flex flex-wrap gap-2 mt-6">
+
+            <div className="flex flex-wrap gap-2 mb-8">
               {app.stack.map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full border border-slate-300 text-sm text-slate-700 bg-white">
+                <span key={tag} className="tag">
                   {tag}
                 </span>
               ))}
             </div>
-            <div className="mt-8 flex gap-3">
-              <a
-                href={app.demoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-3 rounded-lg font-semibold"
-                style={{ background: app.accentColor, color: '#041008' }}
-              >
-                Ouvrir la demo live
+
+            <div className="flex flex-wrap gap-3">
+              <a href={app.demoUrl} target="_blank" rel="noreferrer" className="btn-primary">
+                Ouvrir la démo live
+                <ArrowUpRight size={16} strokeWidth={1.5} />
               </a>
-              <Link href="/marketplace" className="px-5 py-3 rounded-lg border border-slate-300 text-slate-700 bg-white">
-                Retour marketplace
+              <Link href="/contact" className="btn-secondary">
+                Projet similaire ?
               </Link>
             </div>
-          </section>
+          </article>
 
           {related.length > 0 && (
             <section>
-              <h2 className="text-2xl mb-4 text-slate-900" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Projets similaires
-              </h2>
-              <div className="grid md:grid-cols-3 gap-4">
-                {related.map((item) => (
+              <p className="eyebrow mb-6">Projets similaires</p>
+              <div className="grid md:grid-cols-3 border border-stone-200 bg-white">
+                {related.map((item, i) => (
                   <Link
                     key={item.slug}
                     href={`/marketplace/${item.slug}`}
-                    className="rounded-2xl p-4 block"
-                    style={{ border: '1px solid rgba(16,24,40,0.12)', background: '#ffffff' }}
+                    className={`card p-6 hover:bg-stone-50 transition-colors block ${
+                      i < related.length - 1 ? 'md:border-r border-stone-200 border-b md:border-b-0' : ''
+                    }`}
                   >
-                    <p className="text-xs uppercase tracking-wider text-green-700 mb-2">{item.category}</p>
-                    <h3 className="text-lg mb-2 text-slate-900" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                      {item.name}
-                    </h3>
-                    <p className="text-sm text-slate-600">{item.shortDesc}</p>
+                    <p className="tag mb-3">{item.category}</p>
+                    <h3 className="font-display font-semibold text-stone-900 mb-2">{item.name}</h3>
+                    <p className="text-sm text-stone-500 line-clamp-2">{item.shortDesc}</p>
                   </Link>
                 ))}
               </div>

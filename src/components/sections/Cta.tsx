@@ -1,182 +1,48 @@
-﻿'use client'
-
-import { motion } from 'framer-motion'
+﻿import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { LANDING_OFFER } from '@/lib/data'
 
 export default function Cta() {
   return (
-    <section
-      id="contact"
-      className="relative z-10 px-6 overflow-hidden"
-      style={{
-        padding: '10rem 1.5rem',
-        backgroundImage: "url('/screenshots/fond.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(180deg, rgba(22,163,74,0.18), rgba(255,255,255,0.82))',
-          zIndex: 0,
-        }}
-      />
-
-      {[1, 2, 3].map((n) => (
-        <div
-          key={n}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: `${n * 300}px`,
-            height: `${n * 300}px`,
-            borderRadius: '50%',
-            border: '1px solid rgba(240,255,244,0.55)',
-            animation: `ringPulse ${2 + n * 0.5}s ease-in-out infinite`,
-            animationDelay: `${n * 0.3}s`,
-            pointerEvents: 'none',
-            zIndex: 0,
-          }}
-        />
-      ))}
-
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(34,197,94,0.14) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span style={{ width: '30px', height: '1px', background: '#22c55e', display: 'block' }} />
-            <span
-              style={{
-                fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.65rem',
-                letterSpacing: '0.3em',
-                color: '#16a34a',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-              }}
-            >
-              Travaillons ensemble
-            </span>
-            <span style={{ width: '30px', height: '1px', background: '#22c55e', display: 'block' }} />
+    <section id="contact" className="section-padding bg-gradient-to-br from-accent via-accent to-accent-bright text-white">
+      <div className="container-wide">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/60 mb-6">
+              Prêt à booster votre activité ?
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight leading-[1.05] mb-6">
+              Discutons de votre projet dès aujourd&apos;hui.
+            </h2>
+            <p className="text-white/75 text-lg leading-relaxed">
+              Réponse sous 24h. Devis transparent. Que ce soit une landing à {LANDING_OFFER.price} €
+              ou une plateforme complète — nous trouvons la bonne formule.
+            </p>
           </div>
 
-          <h2
-            style={{
-              fontFamily: 'var(--font-orbitron)',
-              fontSize: 'clamp(2rem, 5vw, 4rem)',
-              fontWeight: 900,
-              color: '#ffffff',
-              lineHeight: 1.1,
-              marginBottom: '1.5rem',
-              textShadow: '0 2px 10px rgba(0,0,0,0.28)',
-            }}
-          >
-            Votre projet mérite le <span style={{ color: '#dcfce7' }}>meilleur</span>
-          </h2>
-
-          <p
-            style={{
-              fontFamily: 'var(--font-exo)',
-              fontSize: '1.05rem',
-              color: '#f8fafc',
-              lineHeight: 1.7,
-              marginBottom: '3rem',
-              fontWeight: 500,
-              maxWidth: '500px',
-              margin: '0 auto 3rem',
-            }}
-          >
-            Une idée ? Un projet ? Un besoin urgent ? Contactez-nous et obtenez
-            une réponse sous 24h.
-          </p>
-
-          <a
-            href="mailto:contact@te3coms.com"
-            style={{
-              fontFamily: 'var(--font-orbitron)',
-              fontSize: 'clamp(0.9rem, 2vw, 1.3rem)',
-              fontWeight: 700,
-              color: '#dcfce7',
-              textDecoration: 'none',
-              letterSpacing: '0.1em',
-              display: 'inline-block',
-              marginBottom: '3rem',
-              transition: 'letter-spacing 0.3s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.letterSpacing = '0.25em')}
-            onMouseLeave={(e) => (e.currentTarget.style.letterSpacing = '0.1em')}
-          >
-            contact@te3coms.com
-          </a>
-
-          <div className="flex flex-wrap gap-4 justify-center mt-2">
+          <div className="flex flex-col gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-between gap-4 p-6 bg-white text-stone-900 font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-stone-100 transition-colors group"
+            >
+              Discuter de mon projet
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
+            </Link>
+            <Link
+              href="/offre/landing-page"
+              className="inline-flex items-center justify-between gap-4 p-6 border border-white/40 text-white font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-white/10 transition-colors group"
+            >
+              Landing page dès {LANDING_OFFER.price} €
+              <ArrowRight size={18} strokeWidth={1.5} />
+            </Link>
             <a
               href="mailto:contact@te3coms.com"
-              style={{
-                fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.7rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                background: '#22c55e',
-                color: '#ffffff',
-                padding: '16px 36px',
-                textDecoration: 'none',
-                fontWeight: 700,
-                transition: 'background 0.2s',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#4ade80')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#22c55e')}
+              className="text-center text-sm text-white/60 hover:text-white transition-colors py-2"
             >
-              Démarrer un projet
-            </a>
-            <a
-              href="tel:+33600000000"
-              style={{
-                fontFamily: 'var(--font-orbitron)',
-                fontSize: '0.7rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                border: '1px solid rgba(240,255,244,0.8)',
-                color: '#ffffff',
-                padding: '16px 36px',
-                textDecoration: 'none',
-                fontWeight: 700,
-                transition: 'border-color 0.2s, color 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#dcfce7'
-                e.currentTarget.style.color = '#dcfce7'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(240,255,244,0.8)'
-                e.currentTarget.style.color = '#ffffff'
-              }}
-            >
-              Nous appeler
+              contact@te3coms.com
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
