@@ -20,6 +20,7 @@ export interface MarketplaceProject {
     | 'Medical'
     | 'Garage et vente vehicule'
     | 'Batiment'
+    | 'Services locaux'
     | 'SaaS metier'
     | 'Gestion locative'
     | 'Hotel et conciergerie'

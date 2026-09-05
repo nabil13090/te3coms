@@ -20,11 +20,11 @@ export default function Home() {
       <main>
         <Hero />
         <MarqueeBar />
+        <Portfolio />
         <ExpertiseSection />
         <SeoSection />
         <CaseStudy />
         <WorkflowPreview />
-        <Portfolio />
         <Results />
         <Values />
         <Testimonials />

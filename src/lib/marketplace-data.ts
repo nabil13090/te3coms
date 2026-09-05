@@ -296,6 +296,91 @@ export const MARKETPLACE_PROJECTS: MarketplaceProject[] = [
   },
   {
     id: 8,
+    slug: 'ecolave-vitrolles',
+    name: 'Écolave Vitrolles',
+    category: 'Services locaux',
+    status: 'live',
+    shortDesc: 'Site lavage auto écologique à domicile — Vitrolles et 25 km autour.',
+    fullDesc:
+      'Vitrine conversion pour une agence Écolave à Vitrolles : lavage sans eau, intervention à domicile ou au bureau, parcours devis clair et preuve d\'expertise réseau depuis 2007. Hero immersif, CTA téléphone et devis, arguments écologiques (250 L d\'eau économisés / lavage).',
+    context:
+      'Franchise / agence locale Écolave qui voulait une présence digitale moderne pour générer des devis particuliers et professionnels dans le secteur de Vitrolles.',
+    challenge:
+      'Se différencier des laveurs classiques, mettre en avant le procédé sans eau (autorisé en sécheresse) et convertir rapidement depuis mobile (appel / devis).',
+    solution:
+      'Landing orientée conversion : hero photo véhicule, bandeau preuves (eau économisée, sans eau, depuis 2007), navigation Auto / Maison / Pro, click-to-call et formulaire devis. SEO local Vitrolles intégré.',
+    deliveryTime: '3 semaines',
+    pages: ['Accueil', 'Lavage auto', 'Lavage maison', 'Devis', 'Avant / Après', 'Zone d\'intervention', 'Pro', 'Avis', 'Contact'],
+    features: [
+      'Hero immersif + bandeau preuves',
+      'Click-to-call & CTA devis',
+      'Pages Auto / Maison / Pro',
+      'Galerie avant / après',
+      'Zone d\'intervention 25 km',
+      'SEO local Vitrolles',
+    ],
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'SEO local', 'Conversion'],
+    techStack: {
+      frontend: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS'],
+      backend: ['Node.js', 'API Routes'],
+      tools: ['Hostinger', 'Google Business', 'Google Analytics', 'Git'],
+    },
+    results: [
+      { value: '3 sem.', label: 'Délai de livraison' },
+      { value: '9', label: 'Pages livrées' },
+      { value: '250 L', label: 'Argument eau / lavage' },
+      { value: '25 km', label: 'Zone couverte' },
+    ],
+    demoUrl: 'https://lightskyblue-wren-708303.hostingersite.com/',
+    accentColor: '#0EA5E9',
+    screenshot: '/screenshots/ecolave-vitrolles.png',
+  },
+  {
+    id: 9,
+    slug: 'couvreurpro',
+    name: 'CouvreurPro',
+    category: 'Batiment',
+    status: 'live',
+    shortDesc: 'Site artisan couvreur Aix-en-Provence & PACA — toiture, rénovation, isolation.',
+    fullDesc:
+      'Site corporate complet pour un artisan couvreur en région PACA : couverture neuve, rénovation, isolation, zinguerie et urgences. Hero chantier réel, certifications RGE / décennale, matériaux, réalisations, process 4 étapes et devis gratuit.',
+    context:
+      'Artisan couvreur ancré à Aix-en-Provence qui avait besoin d\'une vitrine crédible pour capter particuliers et syndics sur tout le périmètre 13 · 83 · 84 · 04 · 05.',
+    challenge:
+      'Rassurer (RGE, décennale), présenter un large éventail de prestations et matériaux, et générer des devis sans friction — tout en restant lisible sur mobile.',
+    solution:
+      'Architecture multi-sections : hero preuves, blocs prestations, matériaux, galerie réalisations, process, zones d\'intervention, avis clients, FAQ et CTA devis / urgence. SEO local Aix & PACA.',
+    deliveryTime: '5 semaines',
+    pages: [
+      'Accueil', 'Réalisations', 'Galerie', 'Matériaux', 'Couverture neuve', 'Rénovation',
+      'Isolation', 'Zinguerie', 'FAQ', 'Actualités', 'Devis', 'Contact',
+    ],
+    features: [
+      'Hero chantier + badge RGE / décennale',
+      'Pages prestations & matériaux',
+      'Galerie réalisations',
+      'Process 4 étapes',
+      'Zones d\'intervention PACA',
+      'CTA devis gratuit & urgence',
+    ],
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'SEO local', 'Conversion'],
+    techStack: {
+      frontend: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS'],
+      backend: ['Node.js', 'API Routes'],
+      tools: ['Hostinger', 'Google Business', 'Google Analytics', 'Git'],
+    },
+    results: [
+      { value: '5 sem.', label: 'Délai de livraison' },
+      { value: '12', label: 'Pages livrées' },
+      { value: 'RGE', label: 'Certification affichée' },
+      { value: '5 dép.', label: 'Zone PACA' },
+    ],
+    demoUrl: 'https://darkcyan-kudu-431247.hostingersite.com/',
+    accentColor: '#EA580C',
+    screenshot: '/screenshots/couvreurpro.png',
+  },
+  {
+    id: 10,
     slug: 'hotelos-360',
     name: 'HôtelOS 360',
     category: 'Hotel et conciergerie',
@@ -345,6 +430,7 @@ export const MARKETPLACE_CATEGORIES = [
   'Medical',
   'Garage et vente vehicule',
   'Batiment',
+  'Services locaux',
   'SaaS metier',
   'Gestion locative',
   'Hotel et conciergerie',

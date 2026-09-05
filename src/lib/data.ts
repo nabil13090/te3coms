@@ -69,7 +69,7 @@ export const SEO_OFFER = {
 }
 
 export const CLIENT_LOGOS = [
-  'Electrotech', 'Keryaloc', 'HôtelOS 360', 'Attal P.L.', 'Cupping Room', 'Gardanne Autos',
+  'Electrotech', 'Écolave', 'CouvreurPro', 'Keryaloc', 'HôtelOS 360', 'Attal P.L.', 'Cupping Room', 'Gardanne Autos',
 ]
 
 export const DELIVERY_RANGES = [
