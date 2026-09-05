@@ -1,8 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { NAV_LINKS } from '@/lib/data'
+import { CONTACT, NAV_LINKS } from '@/lib/data'
+import { buildWhatsAppUrl } from '@/lib/whatsapp'
 
 export default function Footer() {
+  const waUrl = buildWhatsAppUrl(
+    CONTACT.whatsapp,
+    'Bonjour TE3COMS, je souhaite des renseignements.',
+  )
+
   const serviceLinks = [
     { label: 'Landing page 699€', href: '/offre/landing-page' },
     { label: 'Création SaaS', href: '/services/creation-saas' },
@@ -65,12 +71,17 @@ export default function Footer() {
             <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-stone-500 mb-6">Contact</h4>
             <ul className="space-y-3 text-sm text-stone-400">
               <li>
-                <a href="mailto:contact@te3coms.com" className="hover:text-white transition-colors">
-                  contact@te3coms.com
+                <a href={waUrl} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                  WhatsApp — devis & renseignements
                 </a>
               </li>
-              <li>Marseille & alentours</li>
-              <li>Lun – Ven · 9h – 18h</li>
+              <li>
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors">
+                  {CONTACT.email}
+                </a>
+              </li>
+              <li>{CONTACT.city}</li>
+              <li>{CONTACT.hours}</li>
             </ul>
           </div>
         </div>

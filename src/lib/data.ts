@@ -72,6 +72,20 @@ export const CLIENT_LOGOS = [
   'Electrotech', 'Écolave', 'CouvreurPro', 'Keryaloc', 'HôtelOS 360', 'Attal P.L.', 'Cupping Room', 'Gardanne Autos',
 ]
 
+/** Contact — WhatsApp prioritaire pour devis & renseignements */
+export const CONTACT = {
+  email: 'contact@te3coms.com',
+  /**
+   * Numéro WhatsApp au format international sans + ni espaces.
+   * Ex. 33612345678 pour un 06 12 34 56 78 français.
+   * Priorité : variable d'environnement NEXT_PUBLIC_WHATSAPP_NUMBER
+   */
+  whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '33600000000').replace(/\D/g, ''),
+  whatsappDisplay: 'WhatsApp',
+  city: 'Marseille & alentours',
+  hours: 'Lun – Ven · 9h – 18h',
+}
+
 export const DELIVERY_RANGES = [
   {
     type: 'Landing page (1 page)',
@@ -453,6 +467,11 @@ export const FAQ = [
     category: 'Technique',
     question: 'Quelles technologies utilisez-vous ?',
     answer: 'Nous maîtrisons un stack complet : HTML5, CSS3, JavaScript, React, Next.js, Node.js, TypeScript, PHP et WordPress. Pour les projets sur mesure (SaaS, CRM), nous utilisons React/Next.js + Node.js + PostgreSQL. Pour les sites vitrines autonomes, WordPress ou Next.js selon vos besoins. Chaque projet est livré avec Git, déploiement sécurisé et documentation.',
+  },
+  {
+    category: 'Contact',
+    question: 'Comment vous contacter pour un devis ?',
+    answer: 'Les demandes de devis et de renseignements se font par WhatsApp via le formulaire contact. Vous pouvez joindre des photos (chantier, site actuel, maquettes). Le message s\'ouvre avec les accents correctement encodés — pas de caractères "?" cassés.',
   },
   {
     category: 'Délais',
