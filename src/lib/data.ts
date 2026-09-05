@@ -80,8 +80,8 @@ export const CONTACT = {
    * Ex. 33612345678 pour un 06 12 34 56 78 français.
    * Priorité : variable d'environnement NEXT_PUBLIC_WHATSAPP_NUMBER
    */
-  whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '33600000000').replace(/\D/g, ''),
-  whatsappDisplay: 'WhatsApp',
+  whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '33613863478').replace(/\D/g, ''),
+  whatsappDisplay: '06 13 86 34 78',
   city: 'Marseille & alentours',
   hours: 'Lun – Ven · 9h – 18h',
 }
