@@ -69,7 +69,7 @@ export const SEO_OFFER = {
 }
 
 export const CLIENT_LOGOS = [
-  'Electrotech', 'Écolave', 'CouvreurPro', 'Keryaloc', 'HôtelOS 360', 'Attal P.L.', 'Cupping Room', 'Gardanne Autos',
+  'Electrotech', 'BrillaGo', 'CouvreurPro', 'Keryaloc', 'HôtelOS 360', 'Attal P.L.', 'Cupping Room', 'Gardanne Autos',
 ]
 
 /** Contact — WhatsApp prioritaire pour devis & renseignements */
@@ -81,7 +81,7 @@ export const CONTACT = {
    * Priorité : variable d'environnement NEXT_PUBLIC_WHATSAPP_NUMBER
    */
   whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '33613863478').replace(/\D/g, ''),
-  whatsappDisplay: '06 13 86 34 78',
+  whatsappDisplay: 'WhatsApp',
   city: 'Marseille & alentours',
   hours: 'Lun – Ven · 9h – 18h',
 }

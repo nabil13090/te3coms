@@ -8,7 +8,7 @@ export function normalizeWhatsAppPhone(raw: string): string {
   let digits = raw.replace(/\D/g, '')
   // 0033… → 33…
   if (digits.startsWith('00')) digits = digits.slice(2)
-  // 0613863478 → 33613863478
+  // 0612345678 → 33612345678
   if (digits.startsWith('0') && digits.length === 10) {
     return `33${digits.slice(1)}`
   }
