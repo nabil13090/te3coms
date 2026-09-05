@@ -25,9 +25,9 @@ export default function ContactPage() {
       <main>
         <PageHero
           index="08"
-          eyebrow="Contact"
-          title="Parlons de votre projet."
-          description="Devis et renseignements par WhatsApp — joignez vos photos (chantier, site actuel, maquettes) dès la demande."
+          eyebrow="Contact · WhatsApp"
+          title="Remplissez le formulaire → WhatsApp s'ouvre."
+          description="Pas d'email : au clic sur « Envoyer sur WhatsApp », une conversation s'ouvre avec TE3COMS (votre message déjà écrit). Vous n'avez plus qu'à appuyer sur Envoyer dans WhatsApp."
         />
 
         <section className="section-padding bg-stone-100 border-b border-stone-200">

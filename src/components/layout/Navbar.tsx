@@ -89,7 +89,7 @@ export default function Navbar() {
           href="/contact"
           className="hidden lg:flex items-center shrink-0 px-5 xl:px-7 bg-brand-amber text-stone-900 font-mono text-[10px] xl:text-[11px] uppercase tracking-[0.12em] hover:bg-amber-300 transition-colors font-semibold border-l border-white/10"
         >
-          Devis
+          Devis WhatsApp
         </Link>
 
         <button
@@ -134,7 +134,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="m-5 flex items-center justify-center py-4 bg-brand-amber text-stone-900 font-mono text-sm uppercase tracking-widest font-semibold"
               >
-                Demander un devis
+                Devis WhatsApp
               </Link>
             </nav>
           </motion.div>
